@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Leisos Vasilis</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/index.css">
+
+		<script type="text/javascript" src="lib/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNc0dmlvo53X4djeek5mOLB3Q0ETqCg7w">
+		</script>
+		<script type="text/javascript" src="lib/angular.min.js"></script>
+		<script type="text/javascript" src="lib/angular-animate.min.js"></script>
+		<script type="text/javascript" src="lib/socket.io.js"></script>
+		<script type="text/javascript" src="controller/app.js"></script>
+	</head>
+	
+	
+	<style>
+    body {
+    background-image: url("res/img/bg20.jpg");
+     
+    }
+</style>
+	<body ng-app="app">    
+		<div class="container" ng-controller="MapController">
+			<div class="row text-center text-muted" id="title">
+				<h1><font color="black">Drops ofS Emotions -  Leisos Vasileios</font></h1>
+			</div>
+			<div class="row" ng-if="showLimitMessage">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 text-left text-muted warning">
+					Oops... The server has temporarily reached the use limit of Twitter API. Please revisit it in 10 minutes.
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 title-seperator">
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 text-muted text-center" id="marker-note-group">
+					<div class="row marker-note">
+						<img src="res/img/marker-green.png">
+						<h5><font color="black">Tweet of Positive Sentiment</font></h5>
+					</div>
+					<div class="row marker-note">
+						<img src="res/img/marker-blue.png">
+						<h5><font color="black">Tweet of Neutral Sentiment</font></h5>
+					</div>
+					<div class="row marker-note">
+						<img src="res/img/marker-red.png">
+						<h5><font color="black">Tweet of Negative Sentiment</font></h5>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-6 col-sm-12 col-xs-12 text-left pull-left pull-right">
+							<div class="input-group"> 
+								<input class="form-control" type="text" placeholder="keyword" ng-model="keyword"/>
+								<span class="input-group-btn">
+									<button class="btn btn-info btn-outline" type="submit" ng-click="RestartBtnClick()">Restart</button>
+									<button class="btn btn-info btn-outline" type="submit" ng-click="StopBtnClick()">{{stopBtnValue}}</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 col-xs-12 text-muted" id="hint">
+							<h5>
+								<em><font color="black">Hint: Click little markers to get tweet details.</font></em>
+							</h5>
+						</div>
+					</div>
+					<div class="row text-center" id="map-container">
+						<div id="map-canvas"></div>
+					</div>
+				</div>
+				<div class="col-md-2 text-left side-area">
+					<div class="row">
+						<h4>Top Trends</h4>
+					</div>
+					<div class="row animate" ng-repeat="trend in trends">
+						<a href="{{trend.url}}" target="_blank">{{trend.name}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+	      	<div class="container text-muted text-center">
+	        	<h5>Copyright 2016 © Leisos Vasilis</h5>
+	        	<h5>p13leis@ionio.gr</h5>
+				<a href="https://github.com/LeisosVasilis" target="_blank">https://github.com/LeisosVasilis</a>
+	      	</div>
+	    </footer>
+	</body>
+</html>
