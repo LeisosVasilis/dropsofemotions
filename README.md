@@ -1,2 +1,8 @@
-This is a single page application that analyzes the sentiment of real-time tweets and displays the result on Google map. 
+Τελικό παραδοτέο με τελική αναφορά και source code.
+
+Drops Of Emotions για το μάθημα τΤεχνολογία Λογισμικού. 
+
+Λέισος Βασίλειος ΑΜ Π2013059
+
+Καθηγητής : Κωνσταντίνος Χωριανόπουλος
 
